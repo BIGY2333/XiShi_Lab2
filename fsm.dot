@@ -1,0 +1,32 @@
+digraph G {
+ rankdir=LR;
+ a[shape=rarrow];
+ b[shape=rarrow];
+ c[shape=rarrow];
+ root1[shape=rarrow];
+ root2[shape=rarrow];
+ n_0[label="a"];
+ n_1[label="b"];
+ n_2[label="c"];
+ n_3[label="2a"];
+ n_4[label="b^2-4ac"];
+ n_5[label="sqrt"];
+ n_6[label="molecular"];
+ n_7[label="root1"];
+ n_8[label="root2"];
+ n_0 -> n_3;
+ n_0 -> n_4;
+ n_1 -> n_6;
+ n_2 -> n_4;
+ n_3 -> n_7;
+ n_3 -> n_8;
+ n_4 -> n_5;
+ n_5 -> n_6;
+ n_6 -> n_7;
+ n_6 -> n_8;
+ a -> n_0;
+ b -> n_1;
+ c -> n_2;
+ n_7 -> root1;
+ n_8 -> root2;
+}
