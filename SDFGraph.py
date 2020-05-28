@@ -198,7 +198,7 @@ class Node(object):
     # This function is used to calculate the result of the function of input.
     def calculate(self):
         get_input = self.get_input_from_queue()
-        if get_input is True:
+        if get_input:
             output = self.function(*get_input)
             self.put_output_to_queue(output)
             return output
@@ -217,7 +217,7 @@ if __name__ == "__main__":
 
     SDF.add_node('a', lambda x: [x, x], ina, ['2a', ('4ac', 0)])
     SDF.add_node('b', lambda x: [x, x], inb, ['b^2-4ac', ('molecular', 0)])
-    SDF.add_node('c', lambda x: x, inc, [('b^2-4ac', 1)])
+    SDF.add_node('d', lambda x: x, inc, [('b^2-4ac', 1)])
     SDF.add_node('2a', lambda x: [2 * x, 2 * x], [('a', 0)], [('root1', 1), ('root2', 1)])
     SDF.add_node('b^2-4ac', lambda x, a, c: x ** 2 - 4 * a * c, [('a', 1), 'c'], [('sqrt', 1)])
     SDF.add_node('sqrt', lambda x: x ** 0.5, ['b^2-4ac'], [('molecular', 1)])
